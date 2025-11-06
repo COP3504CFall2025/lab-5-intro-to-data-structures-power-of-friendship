@@ -55,7 +55,7 @@ public:
 		if (count == 0) {
 			return false;
 		}
-		(head->next).prev = nullptr;
+		(head->next)->prev = nullptr;
 		Node* temp = head;
 		delete head;
 		head = temp->next;
@@ -75,8 +75,8 @@ public:
 		count--;
 		return true;
 	}
-	void Clear() {
-		Node* temp = *head;
+	void clear() {
+		Node* temp = head;
 		for (int i = 0; i<count+1; i++){
 			temp = temp->next;
 			if (i!=count) {
@@ -100,7 +100,7 @@ public:
 		if (this == &other) {
 			return(*this);
 		}
-		this->Clear();
+		this->clear();
 		this->head = other.head;
 		this->tail = other.tail;
 		this->count = other.count;
@@ -124,7 +124,7 @@ public:
 			temp->addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
 		}
-		this->Clear();
+		this->clear();
 		this = temp;
 		temp = nullptr;
 		return(*this);
@@ -159,7 +159,7 @@ public:
 		other.tail = nullptr;
 		other.count = 0;
 	}
-	~LinkedList() {Clear();}
+	~LinkedList() {clear();}
 
 private:
 	// Stores pointers to first and last nodes and count
