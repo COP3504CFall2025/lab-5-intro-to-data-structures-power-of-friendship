@@ -101,6 +101,9 @@ public:
 
     // Deletion
     T dequeue() override {
+        if (curr_size_==0) {
+            throw(std::runtime_error("Tried to pop when no eles"));
+        }
         T temp = array_[headPos];
         headPos = (headPos+1)%capacity_;
         curr_size_--;

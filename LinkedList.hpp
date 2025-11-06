@@ -39,7 +39,6 @@ public:
 			head->prev = temp;
 		head = temp;
 		temp = nullptr;
-
 		count++;
 	}
 	void addTail(const T& data) {
@@ -48,7 +47,6 @@ public:
 		temp->prev = tail;
 		tail = temp;
 		temp = nullptr;
-
 		count++;
 	}
 
@@ -62,7 +60,6 @@ public:
 		delete head;
 		head = temp->next;
 		temp = nullptr;
-
 		count--;
 		return true;
 	}
@@ -75,7 +72,6 @@ public:
 		delete tail;
 		tail = temp->prev;
 		temp = nullptr;
-
 		count--;
 		return true;
 	}

@@ -130,6 +130,9 @@ public:
 
     // Deletion
     T popFront() override {
+        if (size_==0) {
+            throw(std::runtime_error("Tried to pop when no eles"));
+        }
         T temp = data_[front_];
         size_--;
 
@@ -140,6 +143,9 @@ public:
 
     }
     T popBack() override {
+        if (size_==0) {
+            throw(std::runtime_error("Tried to pop when no eles"));
+        }
         T temp = data_[back_];
         size_--;
 
