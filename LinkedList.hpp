@@ -2,10 +2,11 @@
 #include <iostream>
 using namespace std;
 
-struct Node;
+
 
 template <typename T>
 class LinkedList {
+	struct Node;
 public:
 	// Behaviors
 	void printForward() const {
@@ -152,7 +153,6 @@ public:
 			this->addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
 		}
-		return(*this);
 
 	}
 	LinkedList(LinkedList<T>&& other) noexcept {
@@ -162,7 +162,6 @@ public:
 		other.head = nullptr;
 		other.tail = nullptr;
 		other.count = 0;
-		return(*this);
 	}
 	~LinkedList() {Clear();}
 

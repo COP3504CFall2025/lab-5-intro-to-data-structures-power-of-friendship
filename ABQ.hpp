@@ -104,7 +104,7 @@ public:
         T temp = array_[headPos];
         headPos = (headPos+1)%capacity_;
         curr_size_--;
-        return(temp_);
+        return(temp);
     }
 
 };
