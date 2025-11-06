@@ -119,7 +119,7 @@ public:
             temp = nullptr;
         }
         else {
-            data_[(back_+size_)%capacity_] = item;
+            data_[(front_+size_)%capacity_] = item;
             size_++;
 
             if (back_+1 >=size_) {back_ = 0;}
