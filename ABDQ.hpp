@@ -17,6 +17,7 @@ private:
     static constexpr std::size_t SCALE_FACTOR = 2;
 
 public:
+
     // Big 5
     ABDQ():data_(nullptr),capacity_(4),size_(0),front_(0),back_(0){}
     explicit ABDQ(std::size_t capacity):data_(new T[capacity]),capacity_(capacity),size_(0),front_(0),back_(0){}
@@ -77,10 +78,11 @@ public:
     void pushFront(const T& item) override {
         if (size_ == capacity_) { //if we have to increase the array size and copy over the elements alr
             // we'll copy them ordered
+            size_t tempCap = capacity_;
             ensureCapacity();
             T* temp = new T[capacity_];
             for (int i = 0; i<size_;i++) { //can't put the same loop in capacity pq im using different indices
-                temp[i+1] = data_[(front_+size_)%capacity_];
+                temp[i+1] = data_[(front_+size_)%tempCap];
                 front_++;
             }
             front_ = 0;
@@ -93,7 +95,7 @@ public:
 
         }
         else {
-            data_[(back_+size_)%capacity_] = item;
+            data_[(back_+size_)%capacity_] = item; // ts no workie p sure
             size_++;
 
             if (front_-1<=-1) {front_ = size_-1;}
@@ -104,10 +106,11 @@ public:
     void pushBack(const T& item) override {
         if (size_ == capacity_) { //if we have to increase the array size and copy over the elements alr
             // we'll copy them ordered
+            size_t tempCap = capacity_;
             ensureCapacity();
             T* temp = new T[capacity_];
             for (int i = 0; i<size_;i++) {
-                temp[i] = data_[(front_+size_)%capacity_];
+                temp[i] = data_[(front_+size_)%tempCap];
                 front_++;
             }
             front_ = 0;
@@ -178,6 +181,8 @@ public:
             data_ = temp;
             temp = nullptr;
         }
-
+    }
+    T* get_data_() {
+        return data_;
     }
 };

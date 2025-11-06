@@ -20,6 +20,18 @@
 
 int main() {
 
+    ABDQ<size_t>* x = new ABDQ<size_t>((5));
+    x->pushBack(1);
+    x->pushBack(2);
+    x->pushBack((3));
+    x->pushBack(4);
+    x->pushBack(5);
+    x->pushFront(6);
+    size_t* temp = x->get_data_();
+    for (int i = 0; i<x->getSize();i++) {
+        std::cout<<(temp[i])<<std::endl;
+    }
+    delete x;
 
     return 0;
 }
