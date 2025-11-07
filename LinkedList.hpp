@@ -10,18 +10,18 @@ class LinkedList {
 public:
 	// Behaviors
 	void printForward() const {
-		Node temp = *head;
+		Node* temp = head;
 		for (int i = 1; i<count; i++){
-			std::cout<<temp.data;
-			temp = temp.next;
+			std::cout<<temp->data;
+			temp = temp->next;
 		}
 
 	}
 	void printReverse() const {
-		Node temp = *tail;
+		Node* temp = tail;
 		for (int i=count-2; i>-1;i--) {
-			std::cout<<temp.data;
-			temp = temp.prev;
+			std::cout<<temp->data;
+			temp = temp->prev;
 		}
 	}
 
