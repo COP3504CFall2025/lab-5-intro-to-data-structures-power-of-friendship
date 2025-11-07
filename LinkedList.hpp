@@ -83,8 +83,16 @@ public:
 		if (count==0) {
 			return false;
 		}
-		(tail->prev)->next = nullptr;
+		if (count == 1) {
+			delete head;
+			head = nullptr;
+			tail = nullptr;
+			count--;
+			return true;
+		}
+		tail = nullptr;
 		Node* temp = tail;
+		tail->next = nullptr;
 		delete tail;
 		tail = temp->prev;
 		temp = nullptr;
