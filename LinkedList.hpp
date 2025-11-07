@@ -35,7 +35,10 @@ public:
 	// Insertion
 	void addHead(const T& data) {
 		Node* temp = new Node{data,nullptr,head};
-		if (head->prev == nullptr)
+		if (head==nullptr) {
+			tail = temp;
+		}
+		else
 			head->prev = temp;
 		head = temp;
 		temp = nullptr;
@@ -43,8 +46,13 @@ public:
 	}
 	void addTail(const T& data) {
 		Node* temp = new Node{data,tail,nullptr};
-		tail->next = temp;
-		temp->prev = tail;
+		if (tail == nullptr) {
+			head = temp;
+		}
+		else {
+			tail->next = temp;
+		}
+
 		tail = temp;
 		temp = nullptr;
 		count++;
