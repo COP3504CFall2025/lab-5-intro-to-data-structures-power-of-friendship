@@ -38,8 +38,10 @@ public:
 		if (head==nullptr) {
 			tail = temp;
 		}
-		else
+		else {
 			head->prev = temp;
+			temp->next = head;
+		}
 		head = temp;
 		temp = nullptr;
 		count++;
@@ -161,11 +163,10 @@ public:
 		count = 0;
 	}
 	LinkedList(const LinkedList<T>& list) {
-
+		head = nullptr;
+		tail = nullptr;
+		count = 0;
 		if (list.count == 0) {
-			head = nullptr;
-			tail = nullptr;
-			count = 0;
 			return;
 		}
 

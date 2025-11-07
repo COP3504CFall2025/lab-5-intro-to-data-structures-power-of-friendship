@@ -22,7 +22,8 @@ int main() {
 
     LinkedList<int> x;
     x.addHead(5);
-
+    x.addTail(6);
+    LinkedList<int> y = x;
 
     return 0;
 }
