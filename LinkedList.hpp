@@ -131,11 +131,12 @@ public:
 		// 	return(*this); maybe useful later?
 		// }
 		temp->addHead(rhs.head->data);
+		temp->tail = temp->head;
 
 		Node* rhsTempNode = rhs.head;
 		for (int i = 1; i<count;i++) {
-			temp->addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
+			temp->addTail(rhsTempNode->data);
 		}
 		this->clear();
 		this->head = temp->head;
@@ -160,13 +161,16 @@ public:
 		}
 
 		this->count = list.count;
+
 		this->addHead(list.head->data);
+		this->tail = this->head;
 
 		Node* rhsTempNode = list.head;
 		for (int i = 1; i<count;i++) {
-			addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
+			addTail(rhsTempNode->data);
 		}
+
 	}
 	LinkedList(LinkedList<T>&& other) noexcept {
 		this->head = other.head;
