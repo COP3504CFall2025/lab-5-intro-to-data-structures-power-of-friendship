@@ -170,13 +170,12 @@ public:
 			return;
 		}
 
-		this->count = list.count;
 
 		this->addHead(list.head->data);
 		this->tail = this->head;
 
 		Node* rhsTempNode = list.head;
-		for (int i = 1; i<count;i++) {
+		for (int i = 1; i<list.count;i++) {
 			rhsTempNode = rhsTempNode->next;
 			addTail(rhsTempNode->data);
 		}
