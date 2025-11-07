@@ -21,9 +21,9 @@
 int main() {
 
     ABDQ<int> x;
-    x.pushFront((1));
-    x.pushFront(2);
-    x.pushFront(3);
+    x.pushBack((1));
+    x.pushBack(2);
+    x.pushBack(3);
     x.popFront();
     x.pushBack(4);
     x.pushBack(5);

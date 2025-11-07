@@ -138,10 +138,8 @@ public:
         }
         else {
             data_[(front_+size_)%capacity_] = item;
+            back_ = (front_+size_)%capacity_;
             size_++;
-
-            if (back_+1 >=size_) {back_ = 0;}
-            else {back_ ++;}
         }
 
     }
@@ -154,7 +152,7 @@ public:
         T temp = data_[front_];
         size_--;
 
-        if (front_+1 >=capacity_) {front_ = 0;}
+        if (front_+1 ==capacity_) {front_ = 0;}
         else {front_ ++;}
 
         return(temp);
