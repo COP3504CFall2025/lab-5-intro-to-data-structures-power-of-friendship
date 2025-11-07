@@ -63,11 +63,16 @@ public:
 		if (count == 0) {
 			return false;
 		}
+		if (count == 1) {
+			delete head;
+			head = nullptr;
+			tail = nullptr;
+			return true;
+		}
 
 		Node* temp = head;
-		head = nullptr;
-		delete head;
 		head = temp->next;
+		delete temp;
 		temp = nullptr;
 		count--;
 		return true;
