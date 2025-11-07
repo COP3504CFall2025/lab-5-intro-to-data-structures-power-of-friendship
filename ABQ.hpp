@@ -76,10 +76,11 @@ public:
     void enqueue(const T& data) override {
         if (curr_size_ == capacity_) { //if we have to increase the array size and copy over the elements alr
             // we'll copy them ordered
+            size_t tempCap = capacity_;
             capacity_ *= scale_factor_;
             T* temp = new T[capacity_];
             for (int i = 0; i<curr_size_;i++) {
-                temp[i] = array_[(headPos+curr_size_)%capacity_];
+                temp[i] = array_[(headPos+curr_size_)%tempCap];
                 headPos++;
             }
             headPos = 0;
