@@ -144,7 +144,7 @@ public:
 		temp->tail = temp->head;
 
 		Node* rhsTempNode = rhs.head;
-		for (int i = 1; i<count;i++) {
+		for (int i = 1; i<rhs.count;i++) {
 			rhsTempNode = rhsTempNode->next;
 			temp->addTail(rhsTempNode->data);
 		}
