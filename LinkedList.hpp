@@ -67,11 +67,13 @@ public:
 			delete head;
 			head = nullptr;
 			tail = nullptr;
+			count--;
 			return true;
 		}
 
 		Node* temp = head;
 		head = temp->next;
+		head->prev = nullptr;
 		delete temp;
 		temp = nullptr;
 		count--;
@@ -95,15 +97,12 @@ public:
 			tail = nullptr;
 			return;
 		}
-		Node* temp = head;
 		while (head!=nullptr){
 			removeHead();
-			temp = temp->next;
 		}
 		head = nullptr;
 		tail = nullptr;
 		count = 0;
-
 	}
 
 	// Operators
