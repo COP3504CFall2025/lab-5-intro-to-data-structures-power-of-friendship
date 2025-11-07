@@ -180,13 +180,13 @@ public:
         if (size_==0||capacity_==0) {
             throw(std::runtime_error("Tried to access when no eles"));
         }
-        return data_[front_];
+        return data_[back_];
     }
     const T& back() const override {
         if (size_==0||capacity_==0) {
             throw(std::runtime_error("Tried to access when no eles"));
         }
-        return data_[back_];
+        return data_[front_];
     }
 
     // Getters
@@ -217,6 +217,9 @@ public:
             std::cout<<data_[i]<<std::endl;
         }
         std::cout<<""<<std::endl;
+
+        std::cout<<front_<<std::endl;
+        std::cout<<back_<<std::endl;
         std::cout<<front()<<std::endl;
         std::cout<<back()<<std::endl;
 
