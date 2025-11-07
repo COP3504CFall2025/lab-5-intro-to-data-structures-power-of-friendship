@@ -136,7 +136,6 @@ public:
 		}
 		LinkedList* temp = new LinkedList();
 
-		temp->count = rhs.count;
 		// if (rhs.count==0) {
 		//
 		// 	return(*this); maybe useful later?
@@ -151,6 +150,7 @@ public:
 		}
 		this->clear();
 		this->head = temp->head;
+		this->tail = temp->tail;
 		temp = nullptr;
 		return(*this);
 	}
