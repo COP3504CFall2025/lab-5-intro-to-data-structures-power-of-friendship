@@ -26,8 +26,8 @@ public:
     T popBack() override{return(list.removeTail());}
 
     // Element Accessors
-    const T& front() const override{return(list.getHead());}
-    const T& back() const override{return(list.getTail());}
+    const T& front() const override{return(list.getHead().data);}
+    const T& back() const override{return(list.getTail().data);}
 
     // Getter
     std::size_t getSize() const noexcept override{return(list.getCount());}
