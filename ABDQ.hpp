@@ -147,13 +147,13 @@ public:
 
     // Deletion
     T popFront() override {
-        if (size_==0) {
+        if (size_==0||capacity_==0) {
             throw(std::runtime_error("Tried to pop when no eles"));
         }
         T temp = data_[front_];
         size_--;
 
-        if (front_+1 >=size_) {front_ = 0;}
+        if (front_+1 >=capacity_) {front_ = 0;}
         else {front_ ++;}
 
         return(temp);
