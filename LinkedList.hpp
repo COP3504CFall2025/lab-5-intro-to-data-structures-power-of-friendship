@@ -76,6 +76,11 @@ public:
 		return true;
 	}
 	void clear() {
+		if (count==0) {
+			head = nullptr;
+			tail = nullptr;
+			return;
+		}
 		Node* temp = head;
 		for (int i = 0; i<count+1; i++){
 			temp = temp->next;
