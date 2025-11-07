@@ -20,14 +20,9 @@
 
 int main() {
 
-    ABDQ<int> x;
-    x.pushBack((1));
-    x.pushBack(2);
-    x.pushBack(3);
-    x.popFront();
-    x.pushBack(4);
-    x.pushBack(5);
-    x.printForward();
+    LinkedList<int> x;
+    x.addHead(5);
+
 
     return 0;
 }

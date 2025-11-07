@@ -63,8 +63,9 @@ public:
 		if (count == 0) {
 			return false;
 		}
-		(head->next)->prev = nullptr;
+
 		Node* temp = head;
+		head = nullptr;
 		delete head;
 		head = temp->next;
 		temp = nullptr;
@@ -90,17 +91,9 @@ public:
 			return;
 		}
 		Node* temp = head;
-		for (int i = 0; i<count+1; i++){
+		while (head!=nullptr){
+			removeHead();
 			temp = temp->next;
-			if (i!=count) {
-				temp->prev->prev = nullptr;
-				temp->prev->next = nullptr;
-				delete temp->prev;
-			}
-			else {
-				delete temp;
-				temp->prev = nullptr;
-			}
 		}
 		head = nullptr;
 		tail = nullptr;
