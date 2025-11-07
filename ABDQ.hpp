@@ -78,12 +78,17 @@ public:
     void pushFront(const T& item) override {
         if (size_ == capacity_) { //if we have to increase the array size and copy over the elements alr
             // we'll copy them ordered
-            size_t tempCap = capacity_;
             ensureCapacity();
             T* temp = new T[capacity_];
             for (int i = 0; i<size_;i++) { //can't put the same loop in capacity pq im using different indices
-                temp[i+1] = data_[(front_+size_)%tempCap];
-                front_++;
+                if (front_>=capacity_ -1) {
+                    temp[i+1] = data_[front_];
+                    front_ = 0;
+                }
+                else {
+                    temp[i+1] = data_[front_];
+                    front_++;
+                }
             }
             front_ = 0;
             back_ = size_;
@@ -95,11 +100,20 @@ public:
 
         }
         else {
-            data_[(back_+size_)%capacity_] = item; // ts no workie p sure
+            if (front_ == 0 && size_ !=0){
+                front_ = capacity_-1;
+                data_[front_] = item;
+            }
+            else if (size_==0){
+                front_ = 0;
+                data_[front_] = item;
+            }
+            else {
+                --front_;
+                data_[front_] = item;
+            }
             size_++;
 
-            if (front_-1<=-1) {front_ = size_-1;}
-            else {front_ --;}
 
         }
     }
