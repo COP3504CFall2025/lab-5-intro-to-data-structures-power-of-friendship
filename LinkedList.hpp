@@ -84,7 +84,7 @@ public:
 			return false;
 		}
 		if (count == 1) {
-			delete head;
+			delete tail;
 			head = nullptr;
 			tail = nullptr;
 			count--;
@@ -92,13 +92,13 @@ public:
 		}
 
 		Node* temp = tail;
-		tail->next = nullptr;
-		delete tail;
-		tail=nullptr;
 		tail = temp->prev;
+		tail->next = nullptr;
+		delete temp;
 		temp = nullptr;
 		count--;
 		return true;
+
 	}
 	void clear() {
 		if (count==0) {
