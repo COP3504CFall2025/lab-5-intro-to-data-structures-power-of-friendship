@@ -20,11 +20,7 @@
 
 int main() {
 
-    LinkedList<int> x;
-    x.addHead(5);
-    x.addTail(6);
-    LinkedList<int> y;
-    y = x;
+    LLDQ<int>();
 
     return 0;
 }
