@@ -13,7 +13,7 @@ public:
 		Node temp = *head;
 		for (int i = 1; i<count; i++){
 			std::cout<<temp.data;
-			temp = temp->next;
+			temp = temp.next;
 		}
 
 	}
@@ -21,7 +21,7 @@ public:
 		Node temp = *tail;
 		for (int i=count-2; i>-1;i--) {
 			std::cout<<temp.data;
-			temp = temp->prev;
+			temp = temp.prev;
 		}
 	}
 
@@ -67,7 +67,7 @@ public:
 		if (count==0) {
 			return false;
 		}
-		(tail->prev).next = nullptr;
+		(tail->prev)->next = nullptr;
 		Node* temp = tail;
 		delete tail;
 		tail = temp->prev;
@@ -119,7 +119,7 @@ public:
 		temp->count = rhs.count;
 		temp->addHead(rhs.head->data);
 
-		Node* rhsTempNode = rhs->head->next;
+		Node* rhsTempNode = rhs.head->next;
 		for (int i = 1; i<count-1;i++) {
 			temp->addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
@@ -144,7 +144,7 @@ public:
 		this->count = list.count;
 		this->addHead(list.head->data);
 
-		Node* rhsTempNode = list->head->next;
+		Node* rhsTempNode = list.head->next;
 		for (int i = 1; i<count;i++) {
 			this->addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;

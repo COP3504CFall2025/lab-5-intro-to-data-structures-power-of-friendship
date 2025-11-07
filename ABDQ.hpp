@@ -220,6 +220,7 @@ public:
 
         std::cout<<front_<<std::endl;
         std::cout<<back_<<std::endl;
+
         std::cout<<front()<<std::endl;
         std::cout<<back()<<std::endl;
 
