@@ -152,17 +152,20 @@ public:
 	}
 	LinkedList(const LinkedList<T>& list) {
 
-		this->head = list.head;
-		this->tail = list.head;
+
 		this->count = list.count;
 		this->addHead(list.head->data);
 
-		Node* rhsTempNode = list.head->next;
+
+		// if (rhs.count==0) {
+		//
+		// 	return(*this); maybe useful later?
+		// }
+		Node* rhsTempNode = list.head;
 		for (int i = 1; i<count;i++) {
-			this->addTail(rhsTempNode->data);
+			addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
 		}
-
 	}
 	LinkedList(LinkedList<T>&& other) noexcept {
 		this->head = other.head;
