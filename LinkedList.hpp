@@ -134,25 +134,27 @@ public:
 		if (this == &rhs) {
 			return(*this);
 		}
-		LinkedList* temp = new LinkedList();
 
 		// if (rhs.count==0) {
 		//
 		// 	return(*this); maybe useful later?
 		// }
-		temp->addHead(rhs.head->data);
-		temp->tail = temp->head;
+		Node* temp = new Node{rhs.head->data,nullptr,nullptr};
+		Node* tempHead = temp;
+		// tail = head;
 
 		Node* rhsTempNode = rhs.head;
 		for (int i = 1; i<rhs.count;i++) {
 			rhsTempNode = rhsTempNode->next;
-			temp->addTail(rhsTempNode->data);
+			temp->next = new Node(rhsTempNode->data, temp, nullptr);
+			temp = temp->next;
 		}
 		this->clear();
-		this->head = temp->head;
-		this->tail = temp->tail;
-		this->count = temp->count;
+		this->head = tempHead;
+		this->tail = temp;
+		this->count = rhs.count;
 		temp = nullptr;
+		tempHead = nullptr;
 		return(*this);
 	}
 
