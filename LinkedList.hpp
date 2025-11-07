@@ -90,10 +90,11 @@ public:
 			count--;
 			return true;
 		}
-		tail = nullptr;
+
 		Node* temp = tail;
 		tail->next = nullptr;
 		delete tail;
+		tail=nullptr;
 		tail = temp->prev;
 		temp = nullptr;
 		count--;
