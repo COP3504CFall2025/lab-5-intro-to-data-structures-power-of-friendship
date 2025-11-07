@@ -114,18 +114,21 @@ public:
 			return(*this);
 		}
 		LinkedList* temp = new LinkedList();
-		temp->head = rhs.head;
-		temp->tail = rhs.head;
+
 		temp->count = rhs.count;
+		// if (rhs.count==0) {
+		//
+		// 	return(*this); maybe useful later?
+		// }
 		temp->addHead(rhs.head->data);
 
-		Node* rhsTempNode = rhs.head->next;
-		for (int i = 1; i<count-1;i++) {
+		Node* rhsTempNode = rhs->head;
+		for (int i = 1; i<count;i++) {
 			temp->addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
 		}
 		this->clear();
-		this = temp;
+		this->head = temp->head;
 		temp = nullptr;
 		return(*this);
 	}
