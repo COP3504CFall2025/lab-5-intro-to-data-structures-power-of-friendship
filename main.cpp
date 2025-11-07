@@ -20,14 +20,10 @@
 
 int main() {
 
-    ABDQ<int>* x = new ABDQ<int>(2);
-    x->pushBack(1);
-    x->pushBack(2);
-    x->pushBack(3);
-    int* k = x->get_data_();
-    for (int i = 0; i<x->getSize();i++) {
-        std::cout<<k[i]<<std::endl;
-    }
+    ABDQ<int> x;
+    x.pushBack((1));
+    x.pushBack((2));
+
     return 0;
 }
 
