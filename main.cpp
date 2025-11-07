@@ -22,14 +22,13 @@ int main() {
 
     ABDQ<int> x;
     x.pushFront((1));
-    x.pushFront((4));
+    x.pushFront(2);
     x.pushFront(3);
-    x.pushFront(68);
-    x.pushFront(56);
-    int* temp = x.get_data_();
-    for (int i = 0; i<x.getSize();i++) {
-        std::cout<<temp[i]<<std::endl;
-    }
+    x.popFront();
+    x.pushBack(4);
+    x.pushBack(5);
+    x.printForward();
+
     return 0;
 }
 

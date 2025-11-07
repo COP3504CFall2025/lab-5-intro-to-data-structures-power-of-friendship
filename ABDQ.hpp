@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include "Interfaces.hpp"
 #include <utility>
+#include <iostream>
 
 template <typename T>
 class ABDQ : public DequeInterface<T> {
@@ -209,5 +210,15 @@ public:
     }
     T* get_data_() {
         return data_;
+    }
+
+    void printForward() {
+        for (int i = 0; i<capacity_;i++) {
+            std::cout<<data_[i]<<std::endl;
+        }
+        std::cout<<""<<std::endl;
+        std::cout<<front()<<std::endl;
+        std::cout<<back()<<std::endl;
+
     }
 };
