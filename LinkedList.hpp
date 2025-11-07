@@ -122,7 +122,7 @@ public:
 		// }
 		temp->addHead(rhs.head->data);
 
-		Node* rhsTempNode = rhs->head;
+		Node* rhsTempNode = rhs.head;
 		for (int i = 1; i<count;i++) {
 			temp->addTail(rhsTempNode->data);
 			rhsTempNode = rhsTempNode->next;
