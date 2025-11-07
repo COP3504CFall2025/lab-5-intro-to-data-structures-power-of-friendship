@@ -152,15 +152,16 @@ public:
 	}
 	LinkedList(const LinkedList<T>& list) {
 
+		if (list.count == 0) {
+			head = nullptr;
+			tail = nullptr;
+			count = 0;
+			return;
+		}
 
 		this->count = list.count;
 		this->addHead(list.head->data);
 
-
-		// if (rhs.count==0) {
-		//
-		// 	return(*this); maybe useful later?
-		// }
 		Node* rhsTempNode = list.head;
 		for (int i = 1; i<count;i++) {
 			addTail(rhsTempNode->data);
