@@ -20,28 +20,22 @@
 
 int main() {
 
-    LLDQ<int> x =  LLDQ<int>();
-    x.pushBack(1);
-    x.pushBack(2);
-    x.pushFront(3);
-    x.pushFront(4);
-    x.pushFront(5);
-    x.pushBack(0);
+    ABQ<int> x =  ABQ<int>();
+    x.enqueue(1);
+    x.enqueue(2);
+    x.enqueue(3);
 
-    x.getList().printForward();
+
+
+
+    int y = x.dequeue();
+    int z = x.dequeue();
+    int* list = x.getList();
+
     std::cout<<"\n";
 
-    int y = x.popBack();
-    int z = x.popBack();
-    int fj = x.popFront();
-    int lj = x.popBack();
 
-    x.getList().printForward();
-
-    std::cout<<"\n"<<y<< "\t"<< z << "\t" << fj<< "\t"<< lj<<std::endl;
-
-
-
+    std::cout<<y<< "\t"<< z <<std::endl;
 
 
     return 0;

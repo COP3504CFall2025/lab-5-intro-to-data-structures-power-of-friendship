@@ -17,7 +17,7 @@ class ABQ : public QueueInterface<T> {
 
 public:
     // Constructors + Big 5
-    ABQ():capacity_(1),curr_size_(0),headPos(0),array_(nullptr){}
+    ABQ():capacity_(1),curr_size_(0),headPos(0),array_(new T[1]){}
     explicit ABQ(const size_t capacity):capacity_(capacity),curr_size_(0),headPos(0),array_(new T[capacity]){}
     ABQ(const ABQ& other):capacity_(other.capacity_),curr_size_(other.curr_size_),headPos(other.headPos),array_(new T[other.capacity_]) {
         for (int i = 0; i<curr_size_;i++) {
@@ -110,5 +110,7 @@ public:
         curr_size_--;
         return(temp);
     }
+
+    T* getList(){return array_;}
 
 };
