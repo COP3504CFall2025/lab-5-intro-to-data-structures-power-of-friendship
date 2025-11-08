@@ -40,8 +40,18 @@ public:
     }
 
     // Element Accessors
-    const T& front() const override{return(list.getHead()->data);}
-    const T& back() const override{return(list.getTail()->data);}
+    const T& front() const override {
+    if (list.getCount==0){
+        throw(std::runtime_error("Tried to access w no eles"));
+    }
+        return(list.getHead()->data);
+    }
+    const T& back() const override {
+        if (list.getCount==0){
+            throw(std::runtime_error("Tried to access w no eles"));
+        }
+        return(list.getTail()->data);
+    }
 
     // Getter
     std::size_t getSize() const noexcept override{return(list.getCount());}
