@@ -22,8 +22,22 @@ public:
     void pushBack(const T& item) override{list.addTail(item);}
 
     // Core Removal Operations
-    T popFront() override{return(list.removeHead());}
-    T popBack() override{return(list.removeTail());}
+    T popFront() override {
+        if (list.getCount()==0) {
+            throw(std::runtime_error("Tried to pop w no eles"));
+        }
+        T temp = list.getHead()->data;
+        list.removeHead();
+        return(temp);
+    }
+    T popBack() override {
+        if (list.getCount()==0) {
+            throw(std::runtime_error("Tried to pop w no eles"));
+        }
+        T temp = list.getTail()->data;
+        list.removeTail();
+        return(temp);
+    }
 
     // Element Accessors
     const T& front() const override{return(list.getHead()->data);}
@@ -31,6 +45,8 @@ public:
 
     // Getter
     std::size_t getSize() const noexcept override{return(list.getCount());}
+
+    LinkedList<T> getList(){return(list);}
 };
 
 

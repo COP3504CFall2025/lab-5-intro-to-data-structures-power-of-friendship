@@ -11,7 +11,7 @@ public:
 	// Behaviors
 	void printForward() const {
 		Node* temp = head;
-		for (int i = 1; i<count; i++){
+		for (int i = 0; i<count; i++){
 			std::cout<<temp->data;
 			temp = temp->next;
 		}
