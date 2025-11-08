@@ -113,7 +113,7 @@ public:
         T temp = array_[headPos];
         headPos = (headPos+1)%capacity_;
         curr_size_--;
-        // shrinkIfNeeded();
+        shrinkIfNeeded();
         return(temp);
     }
 
@@ -134,5 +134,6 @@ public:
             }
             headPos = 0;
         }
+        else{return;}
     }
 };
