@@ -25,17 +25,10 @@ int main() {
     x.enqueue(2);
     x.enqueue(3);
 
+    ABQ<int> y = x;
 
 
 
-    int y = x.dequeue();
-    int z = x.dequeue();
-    int* list = x.getList();
-
-    std::cout<<"\n";
-
-
-    std::cout<<y<< "\t"<< z <<std::endl;
 
 
     return 0;
