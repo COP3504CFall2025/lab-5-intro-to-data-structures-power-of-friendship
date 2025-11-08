@@ -102,8 +102,8 @@ public:
             throw(std::runtime_error("Tried to pop when no eles"));
         }
         T temp = array_[curr_size_-1];
-        curr_size_--;
         shrinkIfNeeded();
+        curr_size_--;
         return(temp);
     }
 
