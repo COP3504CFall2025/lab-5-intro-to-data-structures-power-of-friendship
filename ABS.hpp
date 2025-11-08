@@ -103,7 +103,6 @@ public:
             array_ = nullptr;
             capacity_ = 0;
             curr_size_ = 0;
-            ~StackInterface<T>();
             throw(std::runtime_error("Tried to pop when no eles"));
         }
         T temp = array_[curr_size_-1];
