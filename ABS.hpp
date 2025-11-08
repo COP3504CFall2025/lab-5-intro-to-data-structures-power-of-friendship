@@ -99,17 +99,20 @@ public:
 
     T pop() override {
         if (curr_size_==0) {
+            delete[] array_;
+            capacity_ = 0;
+            curr_size_ = 0;
             throw(std::runtime_error("Tried to pop when no eles"));
         }
         T temp = array_[curr_size_-1];
-        shrinkIfNeeded();
         curr_size_--;
+        shrinkIfNeeded();
         return(temp);
     }
 
     void shrinkIfNeeded() {
         if (capacity_==0){return;}
-        else if ((curr_size_*scale_factor_)<=capacity_) {
+        else if ((curr_size_*scale_factor_)<capacity_) {
             capacity_/=scale_factor_;
             if (capacity_==0){return;}
             T* temp = new T[capacity_];
