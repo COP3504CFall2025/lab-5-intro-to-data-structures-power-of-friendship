@@ -98,7 +98,12 @@ public:
     }
 
     // Access
-    T peek() const override{return array_[headPos];}
+    T peek() const override {
+    if (curr_size_==0) {
+        throw(std::runtime_error("tried to access w no eles"));
+    }
+        return array_[headPos];
+    }
 
     // Deletion
     T dequeue() override {
