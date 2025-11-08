@@ -35,6 +35,7 @@ int main() {
     x.dequeue();
     x.dequeue();
 
+    ABQ<int> y = x;
 
 
 

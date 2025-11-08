@@ -128,7 +128,7 @@ public:
 
             T* temp = new T[capacity_]; // my sorting logic, p sure this works
             for (int i = 0; i<curr_size_;i++) {
-                temp[i] = array_[(headPos+curr_size_)%tempCap];
+                temp[i] = array_[(headPos)%tempCap];
                 headPos++;
             }
             headPos = 0; // now that its sorted, head should be at the front
