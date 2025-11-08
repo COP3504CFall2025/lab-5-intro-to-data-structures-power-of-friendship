@@ -41,13 +41,13 @@ public:
 
     // Element Accessors
     const T& front() const override {
-    if (list.getCount==0){
+    if (list.getCount()==0){
         throw(std::runtime_error("Tried to access w no eles"));
     }
         return(list.getHead()->data);
     }
     const T& back() const override {
-        if (list.getCount==0){
+        if (list.getCount()==0){
             throw(std::runtime_error("Tried to access w no eles"));
         }
         return(list.getTail()->data);
