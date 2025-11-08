@@ -109,7 +109,8 @@ public:
 
     void shrinkIfNeeded() {
         if ((curr_size_*scale_factor_)<=capacity_) {
-            capacity_/=2;
+            capacity_/=scale_factor_;
+            if (capacity_==0){return;}
             T* temp = new T[capacity_];
             for (int i = 0; i<curr_size_;i++) {
                 temp[i] = array_[i];

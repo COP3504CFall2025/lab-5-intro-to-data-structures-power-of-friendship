@@ -122,16 +122,21 @@ public:
     void shrinkIfNeeded() {
         if ((curr_size_*scale_factor_)<=capacity_) {
             int tempCap = capacity_;
-            capacity_/=2;
-            T* temp = new T[capacity_];
+
+            capacity_/=scale_factor_;
+            if (capacity_==0){return;}
+
+            T* temp = new T[capacity_]; // my sorting logic, p sure this works
             for (int i = 0; i<curr_size_;i++) {
                 temp[i] = array_[(headPos+curr_size_)%tempCap];
                 headPos++;
             }
-            delete[] array_;
+            headPos = 0; // now that its sorted, head should be at the front
+
+            delete[] array_; //cleanup time
             array_ = temp;
             temp = nullptr;
-            headPos = 0;
+
         }
         else{return;}
     }
