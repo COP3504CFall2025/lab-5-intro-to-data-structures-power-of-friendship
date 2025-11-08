@@ -191,7 +191,7 @@ public:
     std::size_t getSize() const noexcept override{return size_;}
 
     void shrinkIfNeeded() {
-        if ((size_*4)/capacity_<=1) {
+        if ((size_*4)==capacity_) {
             size_t tempCap = capacity_;
             capacity_/=2;
             T* temp = new T[capacity_];
@@ -224,21 +224,4 @@ public:
 
     }
 
-    void shrinkIfNeeded() {
-        if (size_*4 == capacity_) {
-            size_t tempCap = capacity_;
-            capacity_/=2;
-            T* temp = new T[capacity_];
-            for (int i = 0; i<size_;i++) {
-                temp[i] = data_[(front_+size_)%tempCap];
-                front_++;
-            }
-            front_ = 0;
-            back_ = size_;
-
-            delete[] data_;
-            data_ = temp;
-            temp = nullptr;
-        }
-    }
 };
