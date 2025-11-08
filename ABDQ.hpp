@@ -194,9 +194,10 @@ public:
         if ((size_*4)/capacity_<=1) {
             size_t tempCap = capacity_;
             capacity_/=2;
+            if (capacity_==0){return;}
             T* temp = new T[capacity_];
             for (int i = 0; i<size_;i++) {
-                temp[i] = data_[(front_+size_)%tempCap];
+                temp[i] = data_[(front_)%tempCap];
                 front_++;
             }
             front_ = 0;
