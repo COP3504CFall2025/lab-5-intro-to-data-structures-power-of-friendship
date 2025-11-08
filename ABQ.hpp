@@ -113,14 +113,14 @@ public:
         T temp = array_[headPos];
         headPos = (headPos+1)%capacity_;
         curr_size_--;
-        shrinkIfNeeded();
+        // shrinkIfNeeded();
         return(temp);
     }
 
     T* getList(){return array_;}
 
     void shrinkIfNeeded() {
-        if (curr_size_*4 == capacity_) {
+        if ((curr_size_*4)/capacity_<=1) {
             int tempCap = capacity_;
             capacity_/=2;
             T* temp = new T[capacity_];
