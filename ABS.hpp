@@ -108,7 +108,7 @@ public:
     }
 
     void shrinkIfNeeded() {
-        if ((curr_size_*scale_factor_)<=capacity_) {
+        if ((curr_size_*scale_factor_)<capacity_) {
             capacity_/=scale_factor_;
             if (capacity_==0){return;}
             T* temp = new T[capacity_];

@@ -120,7 +120,7 @@ public:
     T* getList(){return array_;}
 
     void shrinkIfNeeded() {
-        if ((curr_size_*scale_factor_)<=capacity_) {
+        if ((curr_size_*scale_factor_)<capacity_) {
             int tempCap = capacity_;
 
             capacity_/=scale_factor_;
