@@ -90,7 +90,12 @@ public:
         curr_size_++;
     }
 
-    T peek() const override{return array_[curr_size_-1];}
+    T peek() const override {
+        if (curr_size_==0) {
+            throw(std::runtime_error("tried to access w no eles"));
+        }
+        return array_[curr_size_-1];
+    }
 
     T pop() override {
         if (curr_size_==0) {
