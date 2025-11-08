@@ -24,8 +24,16 @@ int main() {
     x.enqueue(1);
     x.enqueue(2);
     x.enqueue(3);
+    x.enqueue(1);
+    x.enqueue(2);
+    x.enqueue(3);
+    x.enqueue(2);
+    x.enqueue(3);
 
-    ABQ<int> y = x;
+    x.dequeue();
+    x.dequeue();
+    x.dequeue();
+    x.dequeue();
 
 
 

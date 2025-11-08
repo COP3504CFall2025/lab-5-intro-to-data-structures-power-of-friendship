@@ -103,20 +103,20 @@ public:
         }
         T temp = array_[curr_size_-1];
         curr_size_--;
+        shrinkIfNeeded();
         return(temp);
     }
 
     void shrinkIfNeeded() {
-        if ((curr_size_*4)/capacity_<=1) {
+        if ((curr_size_*scale_factor_)<=capacity_) {
             capacity_/=2;
             T* temp = new T[capacity_];
             for (int i = 0; i<curr_size_;i++) {
                 temp[i] = array_[i];
-
-                delete[] array_;
-                array_ = temp;
-                temp = nullptr;
             }
+            delete[] array_;
+            array_ = temp;
+            temp = nullptr;
         }
     }
 

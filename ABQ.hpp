@@ -120,18 +120,17 @@ public:
     T* getList(){return array_;}
 
     void shrinkIfNeeded() {
-        if ((curr_size_*4)/capacity_<=1) {
+        if ((curr_size_*scale_factor_)<=capacity_) {
             int tempCap = capacity_;
             capacity_/=2;
             T* temp = new T[capacity_];
             for (int i = 0; i<curr_size_;i++) {
                 temp[i] = array_[(headPos+curr_size_)%tempCap];
                 headPos++;
-
-                delete[] array_;
-                array_ = temp;
-                temp = nullptr;
             }
+            delete[] array_;
+            array_ = temp;
+            temp = nullptr;
             headPos = 0;
         }
         else{return;}
