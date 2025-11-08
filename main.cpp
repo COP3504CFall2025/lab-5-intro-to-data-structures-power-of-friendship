@@ -20,22 +20,21 @@
 
 int main() {
 
-    ABQ<int> x =  ABQ<int>();
-    x.enqueue(1);
-    x.enqueue(2);
-    x.enqueue(3);
-    x.enqueue(1);
-    x.enqueue(2);
-    x.enqueue(3);
-    x.enqueue(2);
-    x.enqueue(3);
+    ABS<int> x =  ABS<int>();
+    x.push(1);
+    x.push(2);
+    x.push(3);
+    x.push(1);
+    x.push(2);
+    x.push(3);
+    x.push(2);
+    x.push(3);
 
-    x.dequeue();
-    x.dequeue();
-    x.dequeue();
-    x.dequeue();
-
-    ABQ<int> y = x;
+    x.pop();
+    x.pop();
+    x.pop();
+    x.pop();
+    x.pop();
 
 
 
