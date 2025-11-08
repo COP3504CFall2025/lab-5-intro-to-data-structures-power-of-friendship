@@ -98,14 +98,17 @@ public:
     }
 
     T pop() override {
-        if (capacity_ == 0) {
+    try {
+        if (curr_size_==0) {
+            throw(std::runtime_error("Tried to pop when no eles"));
+        }
+    }
+        catch (std::runtime_error) {
             delete[] array_;
             array_ = nullptr;
             capacity_ = 0;
             curr_size_ = 0;
-        }
-        if (curr_size_==0) {
-            throw(std::runtime_error("Tried to pop when no eles"));
+            throw(std::runtime_error("tried to pop w no eles"));
         }
         T temp = array_[curr_size_-1];
         curr_size_--;
